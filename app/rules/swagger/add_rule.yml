@@ -1,0 +1,70 @@
+Endpoint to add a new a rule.
+---
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Rule 1"
+        policy_id:
+          type: integer
+          example: 1
+responses:
+  201:
+    description: Rule added successfully
+    schema:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "Rule 1"
+        policy_id:
+          type: integer
+          example: 1
+  400:
+    description: Parameter name required
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Parameter 'name' is required"
+  400:
+    description: Parameter policy_id
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Paramter 'policy_id' is required"
+  404:
+    description: Policy doesn't exist
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Policy '1' doesn't exist"
+  409:
+    description: Rule name for policy already exists
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "A rule with the name 'Rule 1' already exists 'Policy 1'"
+  500:
+    description: Server error
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Server error"
