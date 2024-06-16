@@ -1,0 +1,4 @@
+Flask==3.*
+Flask-SQLAlchemy==3.*
+flasgger==0.*
+flake8
