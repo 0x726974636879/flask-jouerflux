@@ -1,0 +1,71 @@
+Endpoint to add a new policy.
+---
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Policy 1"
+        firewall_id:
+          type: integer
+          example: 1
+responses:
+  201:
+    description: Policy added successfully
+    schema:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "Policy 1"
+        firewall_id:
+          type: integer
+          example: 1
+  400:
+    description: Paramter name required
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Parameter 'name' required"
+  400:
+    description: Paramter firewill_id required
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Parameter 'firewall_id' required"
+  400:
+    description: Paramter name limited characters
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Parameter 'name' must be 50 characters maximum"
+  409:
+    description: Policy name for policy already exists
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Policy name 'Policy 1' already exists for 'Firewall 1'
+
+  500:
+    description: Server error
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Server error"
