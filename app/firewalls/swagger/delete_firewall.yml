@@ -1,0 +1,27 @@
+Endpoint to delete a firewall by ID.
+---
+parameters:
+  - name: id
+    in: path
+    required: True
+    type: integer
+    description: The ID of the firewall to delete
+responses:
+  200:
+    description: Firewall deleted successfully
+  404:
+    description: Firewall not found
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Firewall '$ID' not found"
+  500:
+    description: Server error
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Server error"

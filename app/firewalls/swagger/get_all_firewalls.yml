@@ -1,0 +1,46 @@
+Endpoint to get all firewalls.
+---
+parameters:
+  - name: page
+    in: query
+    required: false
+    type: integer
+    default: 1
+    description: The page number to retrieve.
+  - name: per_page
+    in: query
+    required: false
+    type: integer
+    default: 10
+    description: The number of items per page (maximum 10).
+responses:
+  200:
+    description: A list of firewalls with pagination information
+    schema:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              name:
+                type: string
+                example: "Firewall 1"
+        total_pages:
+          type: integer
+          example: 3
+        current_page:
+          type: integer
+          example: 1
+        next_page:
+          type: integer
+          example: 2
+          nullable: true
+        prev_page:
+          type: integer
+          example: null
+          nullable: true

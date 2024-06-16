@@ -1,0 +1,56 @@
+Endpoint to get a firewall by ID
+---
+parameters:
+  - name: id
+    in: path
+    required: true
+    type: integer
+    description: The ID of the firewall to retrieve
+responses:
+  200:
+    description: Firewall retrieved successfully
+    schema:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "Firewall 1"
+        policies:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              name:
+                type: string
+                example: "Policy 1"
+              firewall_id:
+                type: integer
+                example: 1
+              rules:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    name:
+                      type: string
+                      example: "Rule 1"
+                    policy_id:
+                      type: integer
+                      example: 1
+  404:
+    description: Firewall not found
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Firewall '1' not found"
