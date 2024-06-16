@@ -41,7 +41,7 @@ This application uses Flask as the web framework and SQLite as the database.
     $ pip install -r requirements.txt
     ```
 
-## Run the application locally
+## Run the application
 
 1. Initialize the database:
 
@@ -63,8 +63,8 @@ This application uses Flask as the web framework and SQLite as the database.
     $ flask run --host=0.0.0.0 -p 80 --reload
     ```
 
+3. (BONUS) Run the application with docker
 
-## Run the applicaiton with docker
     ```sh
     $ docker build . --tag flask-jouerflux:latest
     $ docker run -it -p 80:5000 flask-jouerflux
@@ -73,10 +73,11 @@ This application uses Flask as the web framework and SQLite as the database.
 ## API Usage
 
 The application exposes a RESTful API to manage firewalls, policies and firewall rules.
-You can test the API via Swagger at `http://localhost/apidocs/#`.
-Access the application at `http://localhost`.
+You can test the API via Swagger at `http://localhost/apidocs/#/`.
 
-### Main Endpoints
+Access the application at `http://localhost/`.
+
+### Endpoints
 
 #### Firewalls
 
