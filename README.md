@@ -25,7 +25,7 @@ This application uses Flask as the web framework and SQLite as the database.
 
     ```sh
     $ git clone git@github.com:0x726974636879/flask-jouerflux.git
-    $ cd jouerflux
+    $ cd flask-jouerflux
     ```
 
 2. Create and activate a virtual environment:
